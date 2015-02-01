@@ -10,7 +10,12 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+  return {
+    type: "Goldfish",
+    brand: "Pepperidge Farm",
+    flavor: "Cheddar",
+    count: 2000
+  }; //Modify ONLY this line
   //end your code
 }
 
@@ -38,7 +43,66 @@ function returnObjectLiteral() {
 */
 
 //your code here
+function MessageLog(user)
+{
+	var MessageLogKvp = [];	
+	//var count = MessageLogKvp.length;
 
+	this.MessageLogKvp = MessageLogKvp;
+	//this.count = count;
+	this.user = user;
+	
+	this.logMessage = function (direction, messageText){
+		if (MessageLogKvp.length < 5)
+		{
+			MessageLogKvp.push({
+				key: direction,
+				value: messageText
+			});
+		}
+		else
+		{
+			MessageLogKvp.splice(0, 1);
+			MessageLogKvp.push({
+				key: direction,
+				value: messageText
+			});
+		}
+		
+		//this.count = MessageLogKvp.length;
+	};
+	
+	this.getSentMessage = function (n){
+		return MessageLogKvp[n].value;
+	};
+	
+	this.totalSent = function ()
+	{	
+		//return total number of messages sent
+		var messageSent = 0;
+		
+		for (var i = 0; i < MessageLogKvp.length; i++)
+		{
+			if (MessageLogKvp[i].key == 0)
+				messageSent++;
+		}
+		
+		return messageSent;
+	};
+	this.totalReceived = function (){
+		//returns an integer indicating the total number of messages received
+		var messageReceived = 0;
+		
+		for (var i = 0; i < MessageLogKvp.length; i++)
+		{
+			if (MessageLogKvp[i].key == 1)
+				messageReceived++;
+		}
+		
+		return messageReceived;
+	};
+	
+}
 //end your code
 
 /**
@@ -47,7 +111,14 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
-
+MessageLog.prototype.lastReceivedMessage = function ()
+	{		
+		for (var i = this.MessageLogKvp.length; i > 0 ; i++)
+		{
+			if (this.MessageLogKvp[i - 1].key == 1)
+				return this.getSentMessage(i - 1);		
+		}
+	};
 //end your code
 
 /**
@@ -57,5 +128,8 @@ function returnObjectLiteral() {
 */
 
 //your code here
-
+var myLog = new MessageLog("BlackHatGuy");
+myLog.logMessage(1, "foo");
+myLog.logMessage(1, "bar");
+myLog.logMessage(1, "baz");
 //end your code
