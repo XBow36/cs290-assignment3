@@ -1,3 +1,6 @@
 Start: Sat, 31 Jan 2015 22:33:11
 End: Sat, 31 Jan 2015 23:35:44 
-Tasks: finished all of part one except the girparser
+Tasks: finished all of part one except the gitparser
+
+Start: Sun, 1 Feb 2015 13:08:27
+End:  Sun, 1 Feb 2015 
