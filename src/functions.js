@@ -32,16 +32,22 @@ var barType = typeof bar;
 */
 
 //your code here
-bar = function(float[] doubleArray) {
-    for(i = 0; i < doubleArray.length; i++) {
-        if(typeof doubleArray[i] == "number") {
-            doubleArray[i] = doubleArray[i] * 2;
-        }
-        else {
-            return false;
-        }
-    }
-    return true;
+bar = function(doubleArray)
+{
+	var testBool = true;
+	for (var i in doubleArray)
+	{
+		if (typeof(doubleArray[i]) === "number" && doubleArray[i] * 2 != NaN){
+			doubleArray[i] = doubleArray[i] * 2;		
+		} else{
+			testBool = false;
+			break;
+		}
+	}
+	if (!testBool)
+		return false;
+	else
+		return true;
 }
 //end your code
 
@@ -52,10 +58,27 @@ bar = function(float[] doubleArray) {
 * @property {Date} date - the date of the commit as a JS Date object
 * @property {string} message - the commit message
 */
-function GitLog(hash, date, message) {
-    this.hash = hash;
-    this.date = date;
-    this.message = message;
+function parseGit(logArray)
+{
+	var tempHash;
+	var dateStartingInt;
+	var dateEndingInt;
+	var tempDate;
+	var tempMessage;
+	var GitLog = [];
+ for (var logArrayInstance in logArray)
+ {
+	dateStratingInt = logArrayInstance.indexOf(' ') + 1;
+	dateEndingInt = logArrayInstance.indexOf('"') - 1;
+ 
+	tempHash = logArrayInstance.substr(0, logArrayInstance.indexOf(' '));
+	tempDate = logArrayInstance.substr(dateStartingInt, dateEndingInt);
+	tempMessage = logArrayInstance.substr(logArrayInstance.indexOf('"') + 1, logArrayInstance.substr(logArrayInstance.indexOf('"')).length - 2);	// -2 to remove the ending double quote
+	
+	GitLog.push(new GitLog(tempHash, tempMessage, tempDate));
+ }
+ 
+ return GitLog;
 }
 
 /**
