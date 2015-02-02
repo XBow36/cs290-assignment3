@@ -6,7 +6,9 @@ Begin on Part 2.
 
 Start: Sun, 1 Feb 2015 13:08:27
 End:  Sun, 1 Feb 2015 20:00:29
-Tasks: finished the layout for the website and started implementing Javascript get function to get the Gists.
+Tasks: finished the layout for the website and started implementing Javascript get function to get the Gists, control number
+of pages displayed, control language selection.
 
 Start: Sun, 1 Feb 2015 21:43:07
-End
+End: Sun, 1 Feb 2015 23:53:32
+Tasks: Mad scramble trying to get all features into the html, finished git parser as well.
