@@ -79,6 +79,8 @@ function GitLog(hash, date, message) {
 
 //your code here
 function parseGit(array.<string>) {
+    
     git log --pretty=format:"%h %ad \"%s\"" --date=rfc;
+    
 }
 //end your code
