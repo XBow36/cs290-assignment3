@@ -2,6 +2,8 @@ Start: Sat, 31 Jan 2015 22:33:11
 End: Sat, 31 Jan 2015 23:35:44 
 Tasks: finished all of part one except the gitparser
 
+Begin on Part 2.
+
 Start: Sun, 1 Feb 2015 13:08:27
 End:  Sun, 1 Feb 2015 20:00:29
 Tasks: finished the layout for the website and started implementing Javascript get function to get the Gists.
